@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Connect TikTok · Pixel Perdido Publisher</title><meta name="robots" content="noindex"><link rel="stylesheet" href="estilo.css">
+<style>.tk{display:inline-flex;align-items:center;gap:12px;background:#fff;color:#111;font-weight:700;font-size:18px;padding:14px 22px;border-radius:12px;text-decoration:none;border:0;cursor:pointer}
+.tk:hover{filter:brightness(.92)}.tk b{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;background:#111;color:#fff;font-size:15px}
+ol li{margin:6px 0}</style></head>
+<body><main><header><div class="marca">Pixel <span>Perdido</span> Publisher</div><a class="idioma" href="index.html">Home</a></header>
+<h1>Connect your TikTok account</h1>
+<p class="sub">Private tool of the Pixel Perdido channel. Only the channel owner uses it.</p>
+<div class="cartao"><strong>What happens when you connect</strong>
+<ol><li>You sign in with TikTok and authorize <em>Pixel Perdido Publisher</em> (scopes: <code>user.info.basic</code>, <code>video.upload</code>).</li>
+<li>When you approve a finished Pixel Perdido video in our review panel, our server sends it to your TikTok inbox as a <strong>draft</strong>.</li>
+<li>You open TikTok, review the draft, add the caption and publish it yourself.</li></ol>
+<p style="margin:0">We never publish automatically and we only read your display name and avatar to show which account is connected.</p></div>
+<p><button class="tk" id="go"><b>♪</b>Continue with TikTok</button></p>
+<p class="sub">By connecting you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>. You can revoke access anytime in TikTok → Settings and privacy → Security and permissions → Manage app permissions.</p>
+<script>
+document.getElementById("go").onclick = () => {
+  const st = Array.from(crypto.getRandomValues(new Uint8Array(12)), (b) => b.toString(16).padStart(2, "0")).join("");
+  const q = new URLSearchParams({ client_key: "sbaw8g6pq8x4stlti2", scope: "user.info.basic,video.upload", response_type: "code",
+    redirect_uri: "https://eugustavokeller.github.io/pixelperdido/callback.html", state: st });
+  location.href = "https://www.tiktok.com/v2/auth/authorize/?" + q.toString();
+};
+</script></main></body></html>
