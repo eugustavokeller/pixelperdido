@@ -1,0 +1,14 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Autorização · Pixel Perdido</title><meta name="robots" content="noindex"><link rel="stylesheet" href="estilo.css"></head>
+<body><main><header><div class="marca">Pixel <span>Perdido</span> Publisher</div></header>
+<h1 id="t">Autorização recebida</h1>
+<p class="sub" id="s">Copie o código abaixo e mande no Telegram do Pixel Perdido como: <strong>tiktok &lt;código&gt;</strong></p>
+<div class="cartao"><code id="c" style="word-break:break-all;font-size:15px"></code></div>
+<nav><a href="#" id="b">Copiar código</a></nav>
+<p class="sub">Esta página não envia nada a lugar nenhum: o código só aparece aqui, no seu navegador.</p>
+<script>
+const q = new URLSearchParams(location.search), c = q.get("code"), e = q.get("error_description") || q.get("error");
+const el = document.getElementById("c");
+if (c) el.textContent = c; else { document.getElementById("t").textContent = "Sem código"; document.getElementById("s").textContent = e ? "O TikTok respondeu: " + e : "Abra esta página pelo link de autorização do bot."; document.getElementById("b").style.display = "none"; }
+document.getElementById("b").onclick = (ev) => { ev.preventDefault(); navigator.clipboard.writeText("tiktok " + c); ev.target.textContent = "Copiado!"; };
+</script></main></body></html>
